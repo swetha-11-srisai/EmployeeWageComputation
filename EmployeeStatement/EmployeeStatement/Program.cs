@@ -7,7 +7,7 @@ namespace EmployeeStatement
         static void Main(string[] args)
         {
             Employee emp = new Employee();
-            emp.Empdailyworking();
+            emp.WorkingDays();
             Console.ReadLine();
         }
     }
