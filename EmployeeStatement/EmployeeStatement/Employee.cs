@@ -6,13 +6,13 @@ namespace EmployeeStatement
 {
     class Employee
     {
-        const int Is_PARTTIME = 1, Is_FULLTIME = 2, EMPWAGEPERHR = 20, WORKINGDAYS = 20;
+        const int Is_PARTTIME = 1, Is_FULLTIME = 2, EMPWAGEPERHR = 20, WORKINGDAYS = 20, TOTALHRS = 100;
         int empHrs;
-        public void WorkingDays()
+        public void WorkingDaysMonthly()
         {
             Random random = new Random();
             int empCheck = random.Next(0, 3);
-            for (int i = 0; i <= WORKINGDAYS; i++) ;
+            for (int i = 0; i <= WORKINGDAYS && i <= TOTALHRS; i++) ;
             switch (empCheck)
             {
                 case Is_PARTTIME:
@@ -29,8 +29,6 @@ namespace EmployeeStatement
 
             }
             int salary = EMPWAGEPERHR * empHrs;
-            Console.WriteLine("salary of the employee is:" + salary);
-
 
         }
     }
