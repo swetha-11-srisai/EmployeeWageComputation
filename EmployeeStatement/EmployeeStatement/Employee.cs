@@ -6,28 +6,28 @@ namespace EmployeeStatement
 {
     class Employee
     {
-        const int Is_PARTTIME = 1, Is_FULLTIME = 2, EMPWAGEPERHR= 20;
+        const int Is_PARTTIME = 1, Is_FULLTIME = 2, EMPWAGEPERHR = 20;
         int empHrs;
-        public void AddPartTime()
+        public void Empdailyworking()
         {
             Random random = new Random();
-            if (random.Next(0,3) == Is_PARTTIME)
+            int empCheck = random.Next(0, 3);
+            switch (empCheck)
             {
-                empHrs = 4;
-                int salary = EMPWAGEPERHR * empHrs;
-                Console.WriteLine("Employee Present Part Time");
-            }
-            else if (random.Next(0, 3) == Is_FULLTIME)
-            {
-                empHrs = 8;
-                int salary = EMPWAGEPERHR * empHrs;
-                Console.WriteLine("Employee Present Full Time");
-            }
-            else
-            {
+                case Is_PARTTIME:
+                    empHrs = 4;
+                    Console.WriteLine("Employee Present Parttime");
+                    break;
+                case Is_FULLTIME:
+                    empHrs = 8;
+                    Console.WriteLine("Employee Present full time");
+                    break;
+                default:
+                    Console.WriteLine("Employee Absent");
+                    break;
 
-                Console.WriteLine("Employee Absent");
             }
+            int salary = EMPWAGEPER * empHrs;
 
         }
     }
