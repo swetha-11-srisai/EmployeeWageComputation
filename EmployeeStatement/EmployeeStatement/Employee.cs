@@ -6,30 +6,35 @@ namespace EmployeeStatement
 {
     class Employee
     {
-        const int Is_PARTTIME = 1, Is_FULLTIME = 2, EMPWAGEPERHR = 20, WORKINGDAYS = 20, TOTALHRS = 100;
-        int empHrs;
-        public void WorkingDaysMonthly()
+        public const int IS_PART_TIME = 1, IS_FULL_TIME = 2;
+        public static int Check(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
-            Random random = new Random();
-            int empCheck = random.Next(0, 3);
-            for (int i = 0; i <= WORKINGDAYS && i <= TOTALHRS; i++) ;
-            switch (empCheck)
+            int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0, totalEmpWage;
+            while (totalEmpHrs <= maxHoursPerMonth && totalWorkingDays < numOfWorkingDays)
             {
-                case Is_PARTTIME:
-                    empHrs = 4;
-                    Console.WriteLine("Employee Present Parttime");
-                    break;
-                case Is_FULLTIME:
-                    empHrs = 8;
-                    Console.WriteLine("Employee Present full time");
-                    break;
-                default:
-                    Console.WriteLine("Employee Absent");
-                    break;
-
+                totalWorkingDays++;
+                Random random = new Random();
+                int empCheck = random.Next(0, 3);
+                switch (empCheck)
+                {
+                    case IS_PART_TIME:
+                        empHrs = 4;
+                        break;
+                    case IS_FULL_TIME:
+                        empHrs = 8;
+                        break;
+                    default:
+                        empHrs = 0;
+                        break;
+                }
+                totalEmpHrs += empHrs;
+                Console.WriteLine("Day#:" + totalWorkingDays + " Employee Hours : " + empHrs);
             }
-            int salary = EMPWAGEPERHR * empHrs;
-
+            totalEmpWage = totalEmpHrs * empRatePerHour;
+            Console.WriteLine(company + " Total Employee Wage : " + totalEmpWage);
+            return totalEmpWage;
         }
+
     }
 }
+
