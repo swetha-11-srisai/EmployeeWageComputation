@@ -7,7 +7,8 @@ namespace EmployeeStatement
         static void Main(string[] args)
         {
             Employee emp = new Employee();
-            emp.WorkingDaysMonthly();
+            Employee.Check("WIPRO",30,20,120);
+            Employee.Check("TATA", 40, 25, 100);
             Console.ReadLine();
         }
     }
